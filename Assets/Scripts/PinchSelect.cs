@@ -9,24 +9,26 @@ public class PinchSelect : MonoBehaviour
     GameObject rightHand;
     Transform leftIndex;
     Transform leftThumb;
-    Vector3 leftPinchPosition;
+    public Vector3 leftPinchPosition;
     Transform rightIndex;
     Transform rightThumb;
-    Vector3 rightPinchPosition;
+    public Vector3 rightPinchPosition;
     float leftDist;
     float rightDist;
     // bool isTrackedLeft = false;
 
-    float drawThresh = 0.1f;
-    float detectThresh = 0.2f;
+    public float drawThresh = 0.035f;
+    public float detectThresh = 0.05f;
 
     public bool leftDrawFlag = false;
     public bool leftDetectFlag = false;
     public bool rightDrawFlag = false;
     public bool rightDetectFlag = false;
 
-    void Start() 
+    // Update is called once per frame
+    void Update()
     {
+
         leftHand = GameObject.Find("Left Hand Debug Draw Joints");
         rightHand = GameObject.Find("Right Hand Debug Draw Joints");
 
@@ -35,11 +37,7 @@ public class PinchSelect : MonoBehaviour
 
         leftIndex = leftHand.transform.Find("IndexTip").GetComponent<Transform>();
         leftThumb = leftHand.transform.Find("ThumbTip").GetComponent<Transform>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         leftDist = Vector3.Distance(leftIndex.position, leftThumb.position);
         rightDist = Vector3.Distance(rightIndex.position, rightThumb.position);
 
@@ -48,10 +46,15 @@ public class PinchSelect : MonoBehaviour
 
         setFlags(leftDist, rightDist);
 
-        Debug.Log("Left Detect" + leftDetectFlag);
-        Debug.Log("Left Draw" + leftDrawFlag);
-        Debug.Log("Right Detect" + rightDetectFlag);
-        Debug.Log("Right Draw" + rightDetectFlag);
+        // Debug.Log("Left Dist" + leftDist);
+        // Debug.Log("Right Dist" + rightDist);
+
+        // Debug.Log("Left Detect" + leftDetectFlag);
+        // Debug.Log("Left Draw" + leftDrawFlag);
+        // Debug.Log("Right Detect" + rightDetectFlag);
+        // Debug.Log("Right Draw" + rightDetectFlag);
+
+    Debug.Log("Left Pinch Pos" + leftPinchPosition);
     }
 
     void setFlags(float leftDist, float rightDist) 
