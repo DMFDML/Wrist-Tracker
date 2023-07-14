@@ -13,13 +13,33 @@ public class CreateTrail : MonoBehaviour
 
     private GameObject currentTrail = null;
 
+    public GameObject sketchParent;
+
     public void StartTrail()
     {
         if (!currentTrail)
         {
+
+            if (sketchParent == null) 
+            {
+                sketchParent = new GameObject("Sketch Parent");
+            }
+
             currentTrail = Instantiate(trailPrefab, transform.position, transform.rotation, transform);
             ApplySettings(currentTrail);
+            // AttachParent(currentTrail);
         }
+    }
+
+    private void AttachParent(GameObject trailObject) 
+    {
+        if (sketchParent == null) 
+        {
+            sketchParent = new GameObject("Sketch Parent");
+        }
+
+        trailObject.transform.SetParent(sketchParent.GetComponent<Transform>());
+        // parent = sketchParent.transform;
     }
 
     private void ApplySettings(GameObject trailObject)
@@ -34,7 +54,7 @@ public class CreateTrail : MonoBehaviour
     {
         if (currentTrail)
         {
-            currentTrail.transform.parent = null;
+            currentTrail.transform.parent = sketchParent.GetComponent<Transform>();
             currentTrail = null;
         }
     }

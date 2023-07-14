@@ -13,19 +13,23 @@ public class PinchDraw : MonoBehaviour
     public bool detectFlag = false;
     public bool drawFlag = false;
 
+    // Render materials / drawing objects
     Renderer rend;
     public Material cutout;
     public Material opaque;
 
+    // Event Triggers
     public UnityEvent OnPinchDraw;
     public UnityEvent OnPinchDetect;
     public UnityEvent OnDrawExit;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rend = GetComponent<Renderer>();
         rend.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -37,8 +41,7 @@ public class PinchDraw : MonoBehaviour
 
         if (drawFlag) {
 
-            OnPinchDraw.Invoke();
-            
+            OnPinchDraw.Invoke();            
             transform.position = pinchPosition;
 
         } else if (detectFlag) {
