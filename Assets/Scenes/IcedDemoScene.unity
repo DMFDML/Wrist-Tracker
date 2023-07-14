@@ -2080,6 +2080,8 @@ GameObject:
   - component: {fileID: 975575834}
   - component: {fileID: 975575833}
   - component: {fileID: 975575832}
+  - component: {fileID: 975575837}
+  - component: {fileID: 975575838}
   m_Layer: 0
   m_Name: SketchLeft
   m_TagString: Untagged
@@ -2101,8 +2103,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinchManager: {fileID: 1813639136}
   isLeft: 1
+  detectFlag: 0
+  drawFlag: 0
   cutout: {fileID: 2100000, guid: 8347dd99a1ebd864880e77701ac9b4cd, type: 2}
   opaque: {fileID: 2100000, guid: e7f6b6862e074144e9ee30a87712ccef, type: 2}
+  OnPinchDraw:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 975575837}
+        m_TargetAssemblyTypeName: ChangeMaterial, Assembly-CSharp
+        m_MethodName: ChangeMatDraw
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 975575838}
+        m_TargetAssemblyTypeName: CreateTrail, Assembly-CSharp
+        m_MethodName: StartTrail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPinchDetect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 975575837}
+        m_TargetAssemblyTypeName: ChangeMaterial, Assembly-CSharp
+        m_MethodName: ChangeMatDetect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDrawExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 975575838}
+        m_TargetAssemblyTypeName: CreateTrail, Assembly-CSharp
+        m_MethodName: EndTrail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &975575833
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2189,6 +2250,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975575837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975575831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fe655f3ec3cf4488c36e9e448b27ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &975575838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975575831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28931515f2ecd53469f1ee38e092b310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailPrefab: {fileID: 514267673385768244, guid: 36ea0969ed362074cac511b6136ac334, type: 3}
 --- !u!1 &997913575
 GameObject:
   m_ObjectHideFlags: 0

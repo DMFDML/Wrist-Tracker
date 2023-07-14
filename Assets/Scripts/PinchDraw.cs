@@ -17,15 +17,9 @@ public class PinchDraw : MonoBehaviour
     public Material cutout;
     public Material opaque;
 
-    // Drawing variables
-    public GameObject trailPrefab = null;
-    private float width = 0.05f;
-    private Color color = Color.white;
-
-    private GameObject currentTrail = null;
-
-
     public UnityEvent OnPinchDraw;
+    public UnityEvent OnPinchDetect;
+    public UnityEvent OnDrawExit;
 
     // Start is called before the first frame update
     void Start()
@@ -44,14 +38,18 @@ public class PinchDraw : MonoBehaviour
         if (drawFlag) {
 
             OnPinchDraw.Invoke();
-            // rend.enabled = true;
-            // rend.material = opaque;
-            // transform.position = pinchPosition;
-        } else if (detectFlag) {
-            rend.enabled = true;
-            rend.material = cutout;
+            
             transform.position = pinchPosition;
+
+        } else if (detectFlag) {
+
+            OnDrawExit.Invoke();
+            OnPinchDetect.Invoke();
+            transform.position = pinchPosition;
+
         } else {
+
+            OnDrawExit.Invoke();
             rend.enabled = false;
         }
 
