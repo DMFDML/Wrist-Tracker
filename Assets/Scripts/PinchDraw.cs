@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PinchDraw : MonoBehaviour
 {
 
+    // Tracking variables
     public GameObject pinchManager;
     public bool isLeft = false;
     Vector3 pinchPosition;
@@ -15,6 +17,15 @@ public class PinchDraw : MonoBehaviour
     public Material cutout;
     public Material opaque;
 
+    // Drawing variables
+    public GameObject trailPrefab = null;
+    private float width = 0.05f;
+    private Color color = Color.white;
+
+    private GameObject currentTrail = null;
+
+
+    public UnityEvent OnPinchDraw;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +42,11 @@ public class PinchDraw : MonoBehaviour
         GetFlags(isLeft);
 
         if (drawFlag) {
-            rend.enabled = true;
-            rend.material = opaque;
-            transform.position = pinchPosition;
+
+            OnPinchDraw.Invoke();
+            // rend.enabled = true;
+            // rend.material = opaque;
+            // transform.position = pinchPosition;
         } else if (detectFlag) {
             rend.enabled = true;
             rend.material = cutout;
@@ -42,7 +55,6 @@ public class PinchDraw : MonoBehaviour
             rend.enabled = false;
         }
 
-        
     }
 
     void GetFlags(bool isLeft) 
