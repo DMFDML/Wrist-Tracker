@@ -22,13 +22,8 @@ public class CreateTrail : MonoBehaviour
 
             if (sketchParent == null)
             {
-                sketchParent = GameObject.FindGameObjectWithTag("Sketch");
+                sketchParent = GameObject.FindWithTag("Sketch");
             }
-
-            // if (sketchParent == null) 
-            // {
-            //     sketchParent = new GameObject("Sketch Parent");
-            // }
 
             currentTrail = Instantiate(trailPrefab, transform.position, transform.rotation, transform);
             ApplySettings(currentTrail);
@@ -64,7 +59,12 @@ public class CreateTrail : MonoBehaviour
     {
         if (currentTrail)
         {
-            currentTrail.transform.parent = sketchParent.GetComponent<Transform>();
+            Debug.Log("Ending Trail");
+
+            if (sketchParent) 
+            {
+                currentTrail.transform.parent = sketchParent.GetComponent<Transform>();
+            }            
             ApplyEndSettings(currentTrail);
             currentTrail = null;
             sketchParent = null;
