@@ -10,24 +10,15 @@ public class MakeSketchable : MonoBehaviour
     private void OnTriggerEnter(Collider col) 
     {
 
-        col.gameObject.transform.parent.tag = "Sketch";
+        if (col.gameObject.transform.parent.tag == "Sketchable")
+        {
+            col.gameObject.transform.parent.tag = "Sketch";
+        }
         
-        // Change tag to sketch
-        // col.gameObject.tag = "Sketch";
-        
-        // // If there isn't a matching parent, make one
-        // if (GameObject.Find(col.gameObject.name + "Parent") == null )
-        // {
-        //     objectSketchParent = new GameObject(col.gameObject.name + "Parent");
-        // }
-
-        //Add the object as a child
-
-
     }
 
     private void OnTriggerExit(Collider col) 
     {
-        col.gameObject.transform.parent.tag = "Untagged";
+        col.gameObject.transform.parent.tag = "Sketchable";
     }
 }

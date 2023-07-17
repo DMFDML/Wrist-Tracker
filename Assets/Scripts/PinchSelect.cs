@@ -54,7 +54,7 @@ public class PinchSelect : MonoBehaviour
         // Debug.Log("Right Detect" + rightDetectFlag);
         // Debug.Log("Right Draw" + rightDetectFlag);
 
-    Debug.Log("Left Pinch Pos" + leftPinchPosition);
+        // Debug.Log("Left Pinch Pos" + leftPinchPosition);
     }
 
     void setFlags(float leftDist, float rightDist) 
