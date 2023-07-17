@@ -27,7 +27,6 @@ public class CreateTrail : MonoBehaviour
 
             currentTrail = Instantiate(trailPrefab, transform.position, transform.rotation, transform);
             ApplySettings(currentTrail);
-            // AttachParent(currentTrail);
         }
     }
 
@@ -50,11 +49,18 @@ public class CreateTrail : MonoBehaviour
         trailRenderer.endColor = color;
     }
 
+    private void ApplyEndSettings(GameObject trailObject)
+    {
+        TrailRenderer trailRenderer = trailObject.GetComponent<TrailRenderer>();
+        trailRenderer.emitting = false;
+    }
+
     public void EndTrail()
     {
         if (currentTrail)
         {
             currentTrail.transform.parent = sketchParent.GetComponent<Transform>();
+            ApplyEndSettings(currentTrail);
             currentTrail = null;
         }
     }
