@@ -27,7 +27,7 @@ public class SphereSizeControl : MonoBehaviour
         /// Called when the slider changes, resets the radius to the new value from the slider between the limits
         radius = radiusLowerBound + (value * radiusRange);
         scale = new Vector3(radius, radius, radius);
-        offset = new Vector3(0f, radius / 2, 0f);
+        offset = new Vector3(0f, -radius / 2, 0f);
         transform.localScale = scale;
         transform.localPosition = offset;
         
@@ -38,7 +38,7 @@ public class SphereSizeControl : MonoBehaviour
         /// Called when confirm buttonm is pressed, resizes the sphere to the correct size and stores data about the size and the material, and time taken maybe?
         transform.localScale = new Vector3(0.12f,0.12f,0.12f);
         
-        transform.localPosition = new Vector3(0f, 0.06f, 0f);
+        transform.localPosition = new Vector3(0f, -0.06f, 0f);
     }
 
     public void OnReset()
@@ -49,7 +49,7 @@ public class SphereSizeControl : MonoBehaviour
         radiusRange = radiusUpperBound - radiusLowerBound;
         radius = (radiusLowerBound + radiusUpperBound) / 2;
         scale = new Vector3(radius, radius, radius);
-        offset = new Vector3(0f, radius / 2, 0f);
+        offset = new Vector3(0f, -radius / 2, 0f);
         transform.localScale = scale;
         transform.localPosition = offset;
     }
