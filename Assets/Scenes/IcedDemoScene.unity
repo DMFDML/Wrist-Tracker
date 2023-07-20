@@ -829,7 +829,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 848964109}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 30959643774956167, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -869,7 +869,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3233,9 +3245,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8295196506301531223, guid: 480d9e8b73e58644b892a8d51eaa7231, type: 3}
       insertIndex: 5
       addedObject: {fileID: 1805925450}
-    - targetCorrespondingSourceObject: {fileID: 8295196506301531223, guid: 480d9e8b73e58644b892a8d51eaa7231, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1252128437}
     - targetCorrespondingSourceObject: {fileID: 8575587740850612353, guid: 480d9e8b73e58644b892a8d51eaa7231, type: 3}
       insertIndex: -1
       addedObject: {fileID: 71257004}
@@ -4602,11 +4611,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251412765}
   m_Mesh: {fileID: -5076798556035486163, guid: bf65382e5e6d14e7f8140e4204ce07e2, type: 3}
---- !u!4 &1252128437 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2493735465595961913, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
-  m_PrefabInstance: {fileID: 406168183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1301544133 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2609947680793646372, guid: 140d18577580f204983a9dbd6934a6c0, type: 3}
